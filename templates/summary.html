@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Summary</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Expense Summary by Category</h1>
+
+    <!-- Table displaying summary data -->
+    <table>
+        <tr>
+            <th>Category</th>
+            <th>Total Amount</th>
+        </tr>
+        {% for category, total in summary_data %}
+        <tr>
+            <td>{{ category }}</td>
+            <td>{{ total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Link to the main page -->
+    <a href="{{ url_for('index') }}">Back to Expense Tracker</a>
+</body>
+</html>
